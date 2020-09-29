@@ -23,8 +23,21 @@ public class WordPlay {
         return phraseRepVow.toString();
     }
 
-    public static void emphasize(String phrase, char ch){
+    public static String emphasize(String phrase, char ch) {
+        StringBuilder phraseRep = new StringBuilder(phrase.toLowerCase());
+        ch = Character.toLowerCase(ch);
 
+        for (int i = 0; i < phraseRep.length(); i++) {
+            char currChar = phraseRep.charAt(i);
+
+            if (ch == currChar && (i % 2 == 0)) {
+                phraseRep.setCharAt(i, '*');
+            }
+            if (ch == currChar && i % 2 ==1){
+                phraseRep.setCharAt(i , '+');
+            }
+        }
+        return phraseRep.toString();
     }
 
     public static void testIsVowel() {
@@ -32,14 +45,21 @@ public class WordPlay {
         System.out.println(isVowel(ch));
     }
 
-    public static void testReplaceVowels(){
+    public static void testReplaceVowels() {
         String phrase = "cAr iS GreEn";
         char ch = '*';
         System.out.println(replaceVowels(phrase, ch));
     }
 
+    public static void testEmphasize(){
+        String phrase = "Mary Bella Abracadabra";
+        char ch = 'a';
+        System.out.println(emphasize(phrase, ch));
+    }
+
     public static void main(String[] args) {
 //        testIsVowel();
-        testReplaceVowels();
+//        testReplaceVowels();
+    testEmphasize();
     }
 }
