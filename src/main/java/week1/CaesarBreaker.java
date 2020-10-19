@@ -100,11 +100,12 @@ public class CaesarBreaker {
 
     public static void testDecryptTwoKeys() {
         FileResource fileResource = new FileResource();
+//        String message = "Akag tjw Xibhr awoa aoee xakex znxag xwko";
         String message = fileResource.asString();
         CaesarCipher caesarCipher = new CaesarCipher();
 
-        String encryptTwoKeys = caesarCipher.encryptTwoKeys(message, 23, 2);
-        System.out.println("decryption: " + decryptTwoKeys(encryptTwoKeys) + " = " + message);
+
+        System.out.println("decryption: " + decryptTwoKeys(message) + " = " + message);
 
     }
 

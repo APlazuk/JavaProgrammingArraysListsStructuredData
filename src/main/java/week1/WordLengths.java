@@ -48,7 +48,7 @@ public class WordLengths {
     }
 
     public static void testCountWordsLengths() {
-        FileResource resource = new FileResource("src/main/resources/data/smallHamlet.txt");
+        FileResource resource = new FileResource();
         int[] count = new int[31];
         countWordLengths(resource, count);
         System.out.println(indexOfMax(count));
