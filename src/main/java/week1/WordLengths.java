@@ -28,17 +28,30 @@ public class WordLengths {
         for (int i = 0; i < word.length(); i++) {
             char c = Character.toLowerCase(word.charAt(i));
 
-            if (Character.isLetter(c) || c == '\'' ) {
+            if (Character.isLetter(c) || c == '\'') {
                 wordBuilder.append(c);
             }
         }
         return wordBuilder.toString();
     }
 
-    public static void testCountWordsLengths(){
+    public static int indexOfMax(int[] values) {
+        int maxValue = 0;
+
+        for (int i = 0; i < values.length - 1; i++) {
+            int value = values[i];
+            if (value > maxValue) {
+                maxValue = i;
+            }
+        }
+        return maxValue;
+    }
+
+    public static void testCountWordsLengths() {
         FileResource resource = new FileResource("src/main/resources/data/smallHamlet.txt");
         int[] count = new int[31];
         countWordLengths(resource, count);
+        System.out.println(indexOfMax(count));
     }
 
     public static void main(String[] args) {
