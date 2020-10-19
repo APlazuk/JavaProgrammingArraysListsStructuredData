@@ -1,17 +1,16 @@
 package week1;
 
-import edu.duke.FileResource;
 import org.apache.commons.text.WordUtils;
 
 public class CaesarCipher {
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
 
 //        testCaesar();
         testWithTwoKeys();
     }
 
-    public static String encrypt(String input, int key) {
+    public String encrypt(String input, int key) {
         //Make a StringBuilder with message (encrypted)
         StringBuilder encrypted = new StringBuilder(input.toUpperCase());
         //Write down the alphabet
@@ -39,7 +38,7 @@ public class CaesarCipher {
         return WordUtils.capitalizeFully(s);
     }
 
-    public static String encryptTwoKeys(String input, int key1, int key2) {
+    public String encryptTwoKeys(String input, int key1, int key2) {
         String encrypt = encrypt(input, key1).toUpperCase();
 
         StringBuilder encrypted = new StringBuilder(input.toUpperCase());
@@ -79,7 +78,7 @@ public class CaesarCipher {
         return WordUtils.capitalizeFully(s);
     }
 
-    public static void testCaesar() {
+    public void testCaesar() {
         int key = 15;
 //        FileResource fr = new FileResource();
         String message = "At noon be in the conference room with your hat on for a surprise party. YELL LOUD!";
@@ -89,7 +88,7 @@ public class CaesarCipher {
         System.out.println(decrypted);
     }
 
-    public static void testWithTwoKeys() {
+    public void testWithTwoKeys() {
         int key1 = 8;
         int key2 = 21;
 //        FileResource fr = new FileResource();
