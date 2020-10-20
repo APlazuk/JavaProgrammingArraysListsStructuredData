@@ -49,7 +49,7 @@ public class WordLengths {
 
     public static void testCountWordsLengths() {
         FileResource resource = new FileResource();
-        int[] count = new int[31];
+        int[] count = new int[200000];
         countWordLengths(resource, count);
         System.out.println(indexOfMax(count));
     }

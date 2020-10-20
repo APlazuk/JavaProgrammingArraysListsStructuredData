@@ -59,12 +59,12 @@ public class TestCaesarCipherTwoKeys {
 
     public void simpleTests() {
         FileResource fr = new FileResource();
-        String message = fr.asString();
-
-        CaesarCipherTwoKeys cc = new CaesarCipherTwoKeys(17, 3);
-        String encrypt = cc.encrypt(message);
-        System.out.println("Encrypted: " + encrypt);
-        System.out.println("Decrypted: " + cc.decrypt(encrypt));
+//        String message = fr.asString();
+//
+//        CaesarCipherTwoKeys cc = new CaesarCipherTwoKeys(17, 3);
+//        String encrypt = cc.encrypt(message);
+//        System.out.println("Encrypted: " + encrypt);
+//        System.out.println("Decrypted: " + cc.decrypt(encrypt));
 
         String s = fr.asString();
         System.out.println("Decrypted with two keys: " + breakCaesarCipher(s));

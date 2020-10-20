@@ -5,7 +5,7 @@ import edu.duke.FileResource;
 
 public class CaesarBreaker {
 
-    public static int[] countLetters(String message) {
+    private int[] countLetters(String message) {
         String alph = "abcdefghijklmnopqrstuvwxyz";
         int[] counts = new int[26];
 
@@ -20,7 +20,7 @@ public class CaesarBreaker {
         return counts;
     }
 
-    public static int maxIndex(int[] values) {
+    private int maxIndex(int[] values) {
         int maxDex = 0;
 
         for (int i = 0; i < values.length; i++) {
@@ -31,7 +31,7 @@ public class CaesarBreaker {
         return maxDex;
     }
 
-    public static String decrypt(String encrypted) {
+    public String decrypt(String encrypted) {
         CaesarCipher cc = new CaesarCipher();
         int[] freqs = countLetters(encrypted);
         int maxDex = maxIndex(freqs);
@@ -44,7 +44,7 @@ public class CaesarBreaker {
         return cc.encrypt(encrypted, 26 - dkey);
     }
 
-    public static String halfOfString(String message, int start) {
+    private String halfOfString(String message, int start) {
 
         StringBuilder sb = new StringBuilder();
 
@@ -58,14 +58,14 @@ public class CaesarBreaker {
         return sb.toString();
     }
 
-    public static int getKey(String s) {
+    private int getKey(String s) {
         int[] freq = countLetters(s);
         int maxDex = maxIndex(freq);
 
         return maxDex;
     }
 
-    public static String decryptTwoKeys(String encrypted) {
+    public String decryptTwoKeys(String encrypted) {
         CaesarCipher cc = new CaesarCipher();
         String firstHalf = halfOfString(encrypted, 0);
         String secondHalf = halfOfString(encrypted, 1);
@@ -89,7 +89,7 @@ public class CaesarBreaker {
         return cc.encryptTwoKeys(encrypted, 26 - dkey1, 26 - dkey2);
     }
 
-    public static void testDecrypt() {
+    public void testDecrypt() {
         FileResource fileResource = new FileResource();
         String message = fileResource.asString();
         CaesarCipher caesarCipher = new CaesarCipher();
@@ -98,21 +98,12 @@ public class CaesarBreaker {
         System.out.println(decrypt(encrypt) + " = " + message);
     }
 
-    public static void testDecryptTwoKeys() {
+    public void testDecryptTwoKeys() {
         FileResource fileResource = new FileResource();
 //        String message = "Akag tjw Xibhr awoa aoee xakex znxag xwko";
         String message = fileResource.asString();
-        CaesarCipher caesarCipher = new CaesarCipher();
-
 
         System.out.println("decryption: " + decryptTwoKeys(message) + " = " + message);
 
     }
-
-    public static void main(String[] args) {
-//       testDecrypt();
-//        System.out.println(halfOfString("Qbkm Zgis", 1));
-        testDecryptTwoKeys();
-    }
-
 }

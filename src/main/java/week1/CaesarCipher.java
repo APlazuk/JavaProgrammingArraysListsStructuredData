@@ -4,12 +4,6 @@ import org.apache.commons.text.WordUtils;
 
 public class CaesarCipher {
 
-    public void main(String[] args) {
-
-//        testCaesar();
-        testWithTwoKeys();
-    }
-
     public String encrypt(String input, int key) {
         //Make a StringBuilder with message (encrypted)
         StringBuilder encrypted = new StringBuilder(input.toUpperCase());
@@ -65,7 +59,7 @@ public class CaesarCipher {
                 if (currChar == inputChar) {
                     for (int k = 0; k < encrypt.length(); k++) {
                         char firstChar = encrypt.charAt(k);
-                        if (k == j){
+                        if (k == j) {
                             encrypted.setCharAt(j, firstChar);
                             break;
                         }
@@ -81,7 +75,7 @@ public class CaesarCipher {
     public void testCaesar() {
         int key = 15;
 //        FileResource fr = new FileResource();
-        String message = "At noon be in the conference room with your hat on for a surprise party. YELL LOUD!";
+        String message = "Can you imagine life WITHOUT the internet AND computers in your pocket?";
         String encrypted = encrypt(message, key);
         System.out.println(encrypted);
         String decrypted = encrypt(encrypted, 26 - key);
@@ -89,10 +83,10 @@ public class CaesarCipher {
     }
 
     public void testWithTwoKeys() {
-        int key1 = 8;
-        int key2 = 21;
+        int key1 = 21;
+        int key2 = 8;
 //        FileResource fr = new FileResource();
-        String message = "At noon be in the conference room with your hat on for a surprise party. YELL LOUD!";
+        String message = "Can you imagine life WITHOUT the internet AND computers in your pocket?";
         String encrypted = encryptTwoKeys(message, key1, key2);
         System.out.println(encrypted);
         String decrypted = encryptTwoKeys(encrypted, 26 - key1, 26 - key2);

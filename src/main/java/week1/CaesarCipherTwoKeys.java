@@ -26,7 +26,7 @@ public class CaesarCipherTwoKeys {
 
         StringBuilder sb = new StringBuilder(input.toUpperCase());
 
-        for (int i = 0; i < sb.length(); i++) {
+        for (int i = 1; i < sb.length(); i += 2) {
 
             char currChar = sb.charAt(i);
             int idx = alphabet.indexOf(currChar);
@@ -60,22 +60,23 @@ public class CaesarCipherTwoKeys {
     public String encrypt2(String input) {
 
         StringBuilder encrypted = new StringBuilder(input.toUpperCase());
-        String firstEncrypt = setChar(encrypted, shiftedAlphabet1);
+        String encrypt = setChar(encrypted);
 
-        StringBuilder secondEncrypted = new StringBuilder(firstEncrypt);
-        String scndEncrypt = setChar(secondEncrypted, shiftedAlphabet2);
-
-        return WordUtils.capitalizeFully(scndEncrypt);
+        return WordUtils.capitalizeFully(encrypt);
     }
 
-    private String setChar(StringBuilder sb, String shiftedAlphabet) {
+    private String setChar(StringBuilder sb) {
+        char newChar;
         for (int i = 0; i < sb.length(); i++) {
-
             char currChar = sb.charAt(i);
             int idx = alphabet.indexOf(currChar);
 
             if (idx != -1) {
-                char newChar = shiftedAlphabet.charAt(idx);
+                if (i % 2 == 0) {
+                    newChar = shiftedAlphabet1.charAt(idx);
+                } else {
+                    newChar = shiftedAlphabet2.charAt(idx);
+                }
                 sb.setCharAt(i, newChar);
             }
         }
