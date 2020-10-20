@@ -4,7 +4,7 @@ import edu.duke.FileResource;
 
 public class TestCaesarCipher {
 
-    public int[] countLetters(String message) {
+    private int[] countLetters(String message) {
         String alph = "abcdefghijklmnopqrstuvwxyz";
         int[] counts = new int[26];
 
@@ -19,7 +19,7 @@ public class TestCaesarCipher {
         return counts;
     }
 
-    public int maxIndex(int[] values) {
+    private int maxIndex(int[] values) {
         int maxDex = 0;
 
         for (int i = 0; i < values.length; i++) {
@@ -40,8 +40,8 @@ public class TestCaesarCipher {
         }
 
         System.out.println("dkey: " + dkey);
-        CaesarCipherOneKey cc = new CaesarCipherOneKey(dkey);
-        return cc.decrypt(input);
+        CaesarCipherOneKey cc = new CaesarCipherOneKey(26 - dkey);
+        return cc.encrypt(input);
     }
 
     public void simpleTests() {
