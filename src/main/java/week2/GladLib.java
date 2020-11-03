@@ -158,8 +158,8 @@ public class GladLib {
         System.out.println("number of words that were replaced " + (long) seenWordsList.size());
 
         System.out.println("\n");
-        for (int i = 0; i < seenWordsList.size(); i++) {
-            System.out.println(seenWordsList.get(i));
+        for (String s : seenWordsList) {
+            System.out.println(s);
         }
     }
 
