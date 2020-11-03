@@ -51,11 +51,9 @@ public class WordFrequencies {
 
         int index = findIndexOfMax();
         System.out.println("max word/freq: " + myWords.get(index) + " " + myFreqs.get(index));
-
     }
 
     public int findIndexOfMax() {
-
         return myFreqs.stream().max(Comparator.comparing(myFreqs::get)).orElseThrow(NoSuchElementException::new);
     }
 }
