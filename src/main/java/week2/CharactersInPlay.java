@@ -28,11 +28,6 @@ public class CharactersInPlay {
         }
     }
 
-//    Write a void method called findAllCharacters that opens a file, and reads the file line-by-line.
-//    For each line, if there is a period on the line, extract the possible name of the speaking part,
-//    and call update to count it as an occurrence for this person.
-//    Make sure you clear the appropriate instance variables before each new file.
-
     public void findAllCharacters() {
         characters.clear();
         chFreqs.clear();
