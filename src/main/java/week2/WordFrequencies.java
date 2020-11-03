@@ -10,6 +10,8 @@ package week2;
 import edu.duke.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.NoSuchElementException;
 
 public class WordFrequencies {
     private ArrayList<String> myWords;
@@ -41,16 +43,19 @@ public class WordFrequencies {
 
     public void tester() {
         findUnique();
+
         System.out.println("# unique words: " + myWords.size());
-//        int index = findMax();
-//        System.out.println("max word/freq: " + myWords.get(index) + " " + myFreqs.get(index));
         for (int i = 0; i < myWords.size(); i++) {
             System.out.println(myFreqs.get(i) + "\t" + myWords.get(i));
         }
 
+        int index = findIndexOfMax();
+        System.out.println("max word/freq: " + myWords.get(index) + " " + myFreqs.get(index));
+
     }
 
-    public int findMax() {
-        return 0;
+    public int findIndexOfMax() {
+
+        return myFreqs.stream().max(Comparator.comparing(myFreqs::get)).orElseThrow(NoSuchElementException::new);
     }
 }
