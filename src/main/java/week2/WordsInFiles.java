@@ -62,6 +62,10 @@ public class WordsInFiles {
         for (File file : dr.selectedFiles()) {
             addWordsFromFile(file);
         }
+
+        long countWords = fileNames.keySet().stream().count();
+
+        System.out.println("total words " + countWords);
     }
 
 //    Write the method maxNumber that has no parameters.
@@ -91,7 +95,7 @@ public class WordsInFiles {
 //    and the call wordsInNumFiles(2) would return an ArrayList with the words “love”, “are”, and “dogs”,
 //    all the words that appear in exactly two files.
 
-    public ArrayList<String>  wordsInNumFiles(int number) {
+    public ArrayList<String> wordsInNumFiles(int number) {
 
         List<String> collect = fileNames.entrySet()
                 .stream()
@@ -100,6 +104,7 @@ public class WordsInFiles {
                 .collect(Collectors.toList());
 
 
+        System.out.println("total words in chosen number of files " + collect.size());
         return (ArrayList<String>) collect;
     }
 
@@ -109,7 +114,7 @@ public class WordsInFiles {
 //    For example, in the example above, the call printFilesIn(“cats”)
 //    would print the three filenames: brief1.txt, brief3.txt, and brief4.txt, each on a separate line.
 
-    public void printFilesIn(String word){
+    public void printFilesIn(String word) {
         List<ArrayList<String>> collect = fileNames.entrySet()
                 .stream()
                 .filter(e -> e.getKey().equals(word))
@@ -122,9 +127,10 @@ public class WordsInFiles {
     public void tester() {
 
         buildWordFileMap();
-        System.out.println(maxNumber());
-        System.out.println(wordsInNumFiles(2));
-        printFilesIn("cats");
+
+//        System.out.println("Maximum number of files " + maxNumber());
+        System.out.println("words that appear in exactly number files " + wordsInNumFiles(5));
+        printFilesIn("sad");
     }
 
 }
