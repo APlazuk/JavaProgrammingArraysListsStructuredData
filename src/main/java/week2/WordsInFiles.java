@@ -2,6 +2,7 @@ package week2;
 
 import edu.duke.DirectoryResource;
 
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -10,8 +11,10 @@ import java.util.stream.Collectors;
 public class WordsInFiles {
 
     private HashMap<String, ArrayList<String>> fileNames;
+    private ArrayList<String> totalWords;
 
     public WordsInFiles() {
+        this.totalWords = new ArrayList<>();
         fileNames = new HashMap<>();
     }
 
@@ -30,17 +33,18 @@ public class WordsInFiles {
 
             while (scanner.hasNext()) {
                 String s = scanner.next();
-                String word = s.toLowerCase();
 
-                if (!fileNames.containsKey(word)) {
+                totalWords.add(s);
+
+                if (!fileNames.containsKey(s)) {
                     files = new ArrayList<>();
                 } else {
-                    files = fileNames.get(word);
+                    files = fileNames.get(s);
                 }
 
                 if (!files.contains(f.getName())) {
                     files.add(f.getName());
-                    fileNames.put(word, files);
+                    fileNames.put(s, files);
                 }
             }
         } catch (FileNotFoundException e) {
@@ -63,9 +67,9 @@ public class WordsInFiles {
             addWordsFromFile(file);
         }
 
-        long countWords = fileNames.keySet().stream().count();
 
-        System.out.println("total words " + countWords);
+
+        System.out.println("total words " + totalWords.size());
     }
 
 //    Write the method maxNumber that has no parameters.
@@ -129,8 +133,9 @@ public class WordsInFiles {
         buildWordFileMap();
 
 //        System.out.println("Maximum number of files " + maxNumber());
-        System.out.println("words that appear in exactly number files " + wordsInNumFiles(5));
-        printFilesIn("sad");
+        System.out.println("words that appear in exactly number files " + wordsInNumFiles(4));
+        System.out.println("-----------");
+        printFilesIn("tree");
     }
 
 }

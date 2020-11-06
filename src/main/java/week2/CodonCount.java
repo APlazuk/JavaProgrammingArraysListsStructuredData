@@ -46,6 +46,9 @@ public class CodonCount {
         if (!s.isPresent()) {
             throw new Exception("No such element");
         }
+
+        int size = codonsDNA.keySet().size();
+        System.out.println("total unique codons: " + size);
         return String.valueOf(s);
     }
 
@@ -66,7 +69,7 @@ public class CodonCount {
     public void tester() throws Exception {
         FileResource fr = new FileResource();
         String dna = fr.asString();
-        int start = 5;
+        int start = 1;
 
         buildCodonMap(start, dna);
         System.out.println(getMostCommonCodon());

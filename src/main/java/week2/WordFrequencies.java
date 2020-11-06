@@ -8,6 +8,7 @@ package week2;
  */
 
 import edu.duke.*;
+import week1.WordLengths;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -18,8 +19,8 @@ public class WordFrequencies {
     private ArrayList<Integer> myFreqs;
 
     public WordFrequencies() {
-        myWords = new ArrayList<String>();
-        myFreqs = new ArrayList<Integer>();
+        myWords = new ArrayList<>();
+        myFreqs = new ArrayList<>();
     }
 
     public void findUnique() {
@@ -27,9 +28,11 @@ public class WordFrequencies {
         myFreqs.clear();
 
         FileResource resource = new FileResource();
+        WordLengths wl = new WordLengths();
 
         for (String s : resource.words()) {
             s = s.toLowerCase();
+            WordLengths.noPunctuation(s);
             int index = myWords.indexOf(s);
             if (index == -1) {
                 myWords.add(s);

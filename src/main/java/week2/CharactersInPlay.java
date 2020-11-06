@@ -3,8 +3,7 @@ package week2;
 import edu.duke.FileResource;
 
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.NoSuchElementException;
+
 
 public class CharactersInPlay {
 
