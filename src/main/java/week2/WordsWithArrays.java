@@ -1,7 +1,5 @@
 package week2;
 
-import java.util.*;
-
 import edu.duke.*;
 
 public class WordsWithArrays {
