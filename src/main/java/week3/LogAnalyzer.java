@@ -59,7 +59,7 @@ public class LogAnalyzer {
             String date = parseDate(accessTime);
             String ipAddress = record.getIpAddress();
 
-            if (date.contains(someday.toLowerCase()) && !uniqueIps.contains(ipAddress)) {
+            if (date.contains(someday) && !uniqueIps.contains(ipAddress)) {
                 uniqueIps.add(ipAddress);
             }
         }
@@ -106,9 +106,6 @@ public class LogAnalyzer {
     public ArrayList<String> iPsMostVisits(HashMap<String, Integer> counts) {
         ArrayList<String> mostCommonWebsites = new ArrayList<>();
         int max = 0;
-//
-//        String s = counts.keySet().stream().max(Comparator.comparing(counts::get)).orElseThrow(NoSuchElementException::new);
-//        mostCommonWebsites.add(s);
 
         for (Map.Entry<String, Integer> entry : counts.entrySet()) {
             Integer value = entry.getValue();

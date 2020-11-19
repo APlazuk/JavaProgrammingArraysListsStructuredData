@@ -1,15 +1,15 @@
 package week3;
 
-import java.text.ParseException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CountTester {
 
-    public void testCounts() throws ParseException {
+    public void testCounts() {
         LogAnalyzer la = new LogAnalyzer();
 
-        String filename = "weblog3-short_log";
+        String filename = "weblog1_log";
         la.readFile(filename);
         HashMap<String, Integer> countVisitsPerIP = la.countVisitsPerIP();
         System.out.println(countVisitsPerIP);
