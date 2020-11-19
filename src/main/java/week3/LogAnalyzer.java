@@ -2,16 +2,8 @@ package week3;
 
 import edu.duke.FileResource;
 
-import java.text.ParseException;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.time.temporal.TemporalAccessor;
 import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class LogAnalyzer {
     private ArrayList<LogEntry> records;
@@ -157,7 +149,23 @@ public class LogAnalyzer {
     }
 
     public ArrayList<String> iPsWithMostVisitsOnDay(HashMap<String, ArrayList<String>> input, String day) {
-        return null;
+        HashMap<String, Integer> counts = new HashMap<>();
+
+        for (Map.Entry<String, ArrayList<String>> entry : input.entrySet()) {
+
+            if (entry.getKey().contains(day)) {
+                ArrayList<String> ipAddress = entry.getValue();
+
+                for (String ip : ipAddress) {
+                    if (!counts.containsKey(ip)) {
+                        counts.put(ip, 1);
+                    } else {
+                        counts.put(ip, counts.get(ip) + 1);
+                    }
+                }
+            }
+        }
+        return iPsMostVisits(counts);
     }
 
     private String parseDate(Date date) {
